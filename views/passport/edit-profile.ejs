@@ -1,6 +1,13 @@
 <!-- views/auth/signup.ejs -->
 <h2>Edit Profile</h2>
 <form action="/edit-profile" method="POST" id="form-container">
+
+
+    <br>
+    <label for="picture"></label>
+    <input id="picture" type="file" name="picture" placeholder="${picture}">
+    <br>
+
     <label for="phone-number">Phone Number:</label>
     <input id="phone-number" type="text" name="phone-number" placeholder="current phone number">
     <br>
@@ -26,7 +33,5 @@
         <input id="instagram" type="text" name="instagram" placeholder="${instagram}">
         <br>
 
-        <button type="submit">
-            save
-        </button>
+        <button type="submit">save</button>
 </form>
