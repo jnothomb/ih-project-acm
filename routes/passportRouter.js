@@ -104,8 +104,22 @@ router.post("/edit-profile", (req, res, next) => {
     instagram: instagram
   });
 
-  User.updateOne({ username: req.body.username },
-    { $set: updatedProfile });
+  //   User.updateOne({ username: req.body.username }, { $set: updatedProfile }); {
+  //     if (err) {
+  //       console.log("wtf");
+  //     } else {
+  //       res.redirect("/login");
+  //     }
+  //   }
+  // });
+
+  updateProfile.save(err => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.ridirect("/login");
+    }
+  });
 });
 
 module.exports = router;
