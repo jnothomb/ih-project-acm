@@ -1,0 +1,13 @@
+<div>Private page</div>
+<% if (user) { %>
+  <div>
+    <h1> Welcome to Your Private Contacts Page,
+      <span style="color: rgb(255, 123, 0);">
+        <%= user.username%>
+      </span>.</h1>
+    <br/>
+    <a href="/">Index</a>
+    <br/>
+    <a href="/welcome">Back to Welcome Page</a>
+  </div>
+  <% } %>
