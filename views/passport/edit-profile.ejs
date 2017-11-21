@@ -1,0 +1,32 @@
+<!-- views/auth/signup.ejs -->
+<h2>Edit Profile</h2>
+<form action="/edit-profile" method="POST" id="form-container">
+    <label for="phone-number">Phone Number:</label>
+    <input id="phone-number" type="text" name="phone-number" placeholder="current phone number">
+    <br>
+
+    <br>
+    <label for="email">Password:</label>
+    <input id="email" type="text" name="email" placeholder="${email}">
+    <br>
+
+    <br>
+    <label for="address">Address:</label>
+    <input id="address" type="text" name="address" placeholder="${address}">
+    <br>
+
+    <h5>Social Media:</h2>
+        <br>
+        <label for="facebook">Facebook:</label>
+        <input id="facebook" type="text" name="facebook" placeholder="${facebook}">
+        <br>
+
+        <br>
+        <label for="instagram">Instagram:</label>
+        <input id="instagram" type="text" name="instagram" placeholder="${instagram}">
+        <br>
+
+        <button type="submit">
+            save
+        </button>
+</form>

@@ -34,7 +34,7 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   if (username === "" || password === "") {
-    res.render("views/passport/signup.ejs", {
+    res.render("passport/signup.ejs", {
       message: "Indicate username and password"
     });
     return;
@@ -44,7 +44,7 @@ router.post("/signup", (req, res, next) => {
     username
   }, "username", (err, user) => {
     if (user !== null) {
-      res.render("views/passport/signup.ejs", {
+      res.render("passport/signup.ejs", {
         message: "The username already exists"
       });
       return;
@@ -59,7 +59,7 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("views/passport/signup.ejs", {
+        res.render("passport/signup.ejs", {
           message: "Something went wrong"
         });
       } else {
@@ -84,5 +84,28 @@ router.post("/login", passport.authenticate("local", {
   failureFlash: true,
   passReqToCallback: true
 }));
+
+router.get("/edit-profile", (req, res, next) => {
+  res.render("passport/edit-profile");
+});
+
+router.post("/edit-profile", (req, res, next) => {
+  const phoneNumber = req.body.phoneNumber;
+  const email = req.body.email;
+  const address = req.body.address;
+  const facebook = req.body.facebook;
+  const instagram = req.body.instagram;
+
+  const updatedProfile = new User({
+    phoneNumber: phoneNumber,
+    email: email,
+    address: address,
+    facebook: facebook,
+    instagram: instagram
+  });
+
+  User.updateOne({ username: req.body.username },
+    { $set: updatedProfile });
+});
 
 module.exports = router;
