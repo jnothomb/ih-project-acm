@@ -1,80 +1,58 @@
 "use strict";
-
+const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const app = express();
+const configurePassport = require("./helpers/passport");
 
 // mongoose configuration
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/automated-contact-manager");
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://localhost/automated-contact-manager", {
+  keepAlive: true,
+  reconnectTries: Number.MAX_VALUE,
+  useMongoClient: true
+});
 
 // require the user model
-const User = require("./models/user");
-const session = require("express-session");
-const bcrypt = require("bcrypt");
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+
+// declaring routes
+const index = require("./routes/index");
+const passportRouter = require("./routes/passportRouter");
+
+// enable sessions here
+app.use(flash());
+app.use(session({
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  secret: "some-string",
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+
+// - passport
+
+configurePassport();
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // User available for all templates
 app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
-
-// declaring routes
-const index = require("./routes/index");
-const users = require("./routes/users");
-const passportRouter = require("./routes/passportRouter");
-
-// enable sessions here
-app.use(flash());
-app.use(session({
-  secret: "automated-contact-manager-app",
-  resave: true,
-  saveUninitialized: true
-}));
-
-// initialize passport and session here
-passport.serializeUser((user, cb) => {
-  cb(null, user._id);
-});
-passport.deserializeUser((id, cb) => {
-  User.findOne({
-    "_id": id
-  }, (err, user) => {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, user);
-  });
-});
-passport.use(new LocalStrategy(
-  (username, password, next) => {
-    User.findOne({
-      username
-    }, (err, user) => {
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        return next(null, false, {
-          message: "Incorrect username"
-        });
-      }
-      if (!bcrypt.compareSync(password, user.password)) {
-        return next(null, false, {
-          message: "Incorrect password"
-        });
-      }
-      return next(null, user);
-    });
-  }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -89,18 +67,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // require in the routers
 app.use("/", index);
-app.use("/", users);
 app.use("/", passportRouter);
 
-// passport code here
-
-app.use(
-  session({
-    secret: "automated-contact-manager-app",
-    resave: true,
-    saveUninitialized: true
-  })
-);
 // catch 404 and forward to error handler
 
 app.use(function (req, res, next) {

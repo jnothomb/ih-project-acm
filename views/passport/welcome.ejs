@@ -4,7 +4,9 @@
 
 
 <br/>
-<a href="/edit-profile/:userID">Go To Private Page...</a>
+<% if(user) { %>
+    <a href="/edit-profile/<%= user.id %>">Go To Private Page...</a>
 
-<br/>
-<a href="/logout">...Log Out</a>
+    <br/>
+    <a href="/logout">...Log Out</a>
+    <% } %>

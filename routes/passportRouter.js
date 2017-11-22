@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 // User model
-const User = require("../models/user");
+const User = require("../models/user").User;
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -22,7 +22,8 @@ router.get("/signup", (req, res, next) => {
   res.render("passport/signup.ejs");
 });
 
-router.get("/welcome", (req, res, next) => {
+router.get("/welcome", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  console.log(req.user);
   res.render("passport/welcome.ejs");
 });
 
@@ -53,36 +54,40 @@ router.post("/signup", (req, res, next) => {
   User.findOne({
     username
   }, "username", (err, user) => {
-    if (user !== null) {
-      res.render("passport/signup.ejs", {
-        message: "The username already exists"
-      });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-    const newUser = new User({
-      username,
-      password: hashPass,
-      firstName,
-      lastName,
-      phoneNumber,
-      email,
-      address,
-      facebook,
-      instagram
-    });
-
-    newUser.save((err) => {
-      if (err) {
+    if (err) {
+      next(err);
+    } else {
+      if (user !== null) {
         res.render("passport/signup.ejs", {
-          message: "Something went wrong"
+          message: "The username already exists"
         });
-      } else {
-        res.redirect("/registered");
+        return;
       }
-    });
+
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashPass = bcrypt.hashSync(password, salt);
+      const newUser = new User({
+        username,
+        password: hashPass,
+        firstName,
+        lastName,
+        phoneNumber,
+        email,
+        address,
+        facebook,
+        instagram
+      });
+
+      newUser.save((err) => {
+        if (err) {
+          res.render("passport/signup.ejs", {
+            message: "Something went wrong"
+          });
+        } else {
+          res.redirect("/registered");
+        }
+      });
+    }
   });
 });
 
@@ -104,34 +109,32 @@ router.post("/login", passport.authenticate("local", {
 
 /// / ----- PROFILE AND EDIT PROFILE ROUTES ---/////
 
-router.get("/edit-profile/:userID", (req, res, next) => {
-  res.render("passport/edit-profile");
-});
-
 router.get("/profile/:userID", (req, res, next) => {
   res.render("passport/profile");
 });
 
+router.get("/edit-profile/:userID", (req, res, next) => {
+  res.render("passport/edit-profile");
+});
+
 router.post("/edit-profile/:userID", (req, res, next) => {
-  const phoneNumber = req.body.phoneNumber;
-  const email = req.body.email;
-  const address = req.body.address;
-  const facebook = req.body.facebook;
-  const instagram = req.body.instagram;
+  console.log(req.user);
 
   const updatedProfile = {
-    phoneNumber: phoneNumber,
-    email: email,
-    address: address,
-    facebook: facebook,
-    instagram: instagram
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email,
+    address: req.body.address,
+    socialMedia: {
+      facebook: req.body.facebook,
+      instagram: req.body.instagram
+    }
   };
 
-  User.findOneAndUpdate({ _id: req.user._id }, updatedProfile, (err, res) => {
+  User.findOneAndUpdate({ _id: req.user._id }, updatedProfile, (err, profile) => {
     if (err) {
       next(err);
     } else {
-      res.redirect("/login");
+      res.redirect("/welcome");
     }
   });
 });
