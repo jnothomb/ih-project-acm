@@ -30,6 +30,8 @@ router.get("/registered", (req, res, next) => {
   res.render("passport/registered.ejs");
 });
 
+// SIGNUP ROUTE TO CREATE PROFILE
+
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
