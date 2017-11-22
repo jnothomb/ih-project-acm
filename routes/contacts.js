@@ -17,7 +17,7 @@ router.get("/contacts", ensureLogin.ensureLoggedIn(), (req, res, next) => {
       const data = {
         userContact: result
       };
-      res.render("profile/profile", data);
+      res.render("profile/contacts", data);
     }
   });
 });
