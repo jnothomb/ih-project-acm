@@ -6,19 +6,6 @@ const ensureLogin = require("connect-ensure-login");
 // User model
 const User = require("../models/user").User;
 
-router.get("/welcome", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  User.findOne({ _id: req.user._id }, (err, result) => {
-    if (err) {
-      next(err);
-    } else {
-      const data = {
-        user: result
-      };
-      res.render("profile/profile", data);
-    }
-  });
-});
-
 router.get("/registered", (req, res, next) => {
   res.render("passport/registered.ejs");
 });

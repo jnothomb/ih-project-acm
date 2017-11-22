@@ -26,6 +26,7 @@ const flash = require("connect-flash");
 const index = require("./routes/index");
 const passportRouter = require("./routes/passportRouter");
 const profile = require("./routes/profile");
+const contacts = require("./routes/contacts");
 
 // enable sessions here
 app.use(flash());
@@ -70,6 +71,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", index);
 app.use("/", passportRouter);
 app.use("/", profile);
+app.use("/", contacts);
 
 // -- 404 and error handler
 

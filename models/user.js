@@ -15,11 +15,12 @@ const userSchema = new Schema({
   socialMedia: {
     facebook: String,
     instagram: String
-  },
-  contacts: [{
-    type: ObjectId,
-    ref: "User"
-  }]
+  }
+  // ELIMINATING use of contacts array in model - not doing requests anymore
+  // contacts: [{
+  //   type: ObjectId,
+  //   ref: "User"
+  // }]
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

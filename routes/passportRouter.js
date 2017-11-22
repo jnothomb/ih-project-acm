@@ -2,6 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
+
 // User model
 const User = require("../models/user").User;
 
@@ -91,7 +92,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/welcome",
+  successRedirect: "/contacts",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true

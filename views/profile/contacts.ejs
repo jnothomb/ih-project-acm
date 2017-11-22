@@ -1,0 +1,35 @@
+<!-- MUST RENAME THIS PAGE IN ALL -->
+
+<!-- main.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contacts</title>
+</head>
+
+<body>
+
+    <h1>Contacts</h1>
+    <br>
+
+    <% if(user) { %>
+
+        <h3>List</h3>
+
+        <ul>
+            <% userContact.forEach(userContact => { %>
+                <li>
+                    <%= userContact.name %>
+                </li>
+                <% }) %>
+        </ul>
+
+        <a href="/edit-profile/<%= user.id %>">Edit profile...</a>
+        <br>
+
+        <% } %>
+
+</body>
+
+</html>
