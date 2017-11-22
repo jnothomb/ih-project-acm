@@ -2,7 +2,6 @@
 
 const express = require("express");
 const router = express.Router();
-
 // User model
 const User = require("../models/user").User;
 
@@ -20,15 +19,6 @@ router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
 
 router.get("/signup", (req, res, next) => {
   res.render("passport/signup.ejs");
-});
-
-router.get("/welcome", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  console.log(req.user);
-  res.render("passport/welcome.ejs");
-});
-
-router.get("/registered", (req, res, next) => {
-  res.render("passport/registered.ejs");
 });
 
 // SIGNUP ROUTE TO CREATE PROFILE
@@ -106,55 +96,5 @@ router.post("/login", passport.authenticate("local", {
   failureFlash: true,
   passReqToCallback: true
 }));
-
-/// / ----- PROFILE AND EDIT PROFILE ROUTES ---/////
-
-router.get("/profile/:userID", (req, res, next) => {
-  res.render("passport/profile");
-});
-
-router.get("/edit-profile/:userID", (req, res, next) => {
-  res.render("passport/edit-profile");
-});
-
-router.post("/edit-profile/:userID", (req, res, next) => {
-  console.log(req.user);
-
-  const updatedProfile = {
-    phoneNumber: req.body.phoneNumber,
-    email: req.body.email,
-    address: req.body.address,
-    socialMedia: {
-      facebook: req.body.facebook,
-      instagram: req.body.instagram
-    }
-  };
-
-  User.findOneAndUpdate({ _id: req.user._id }, updatedProfile, (err, profile) => {
-    if (err) {
-      next(err);
-    } else {
-      res.redirect("/welcome");
-    }
-  });
-});
-
-//   User.updateOne({ username: req.body.username }, { $set: updatedProfile }); {
-//     if (err) {
-//       console.log("wtf");
-//     } else {
-//       res.redirect("/login");
-//     }
-//   }
-// });
-
-// updatedProfile.save(err => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     res.redirect("/login");
-//   }
-// });
-// });
 
 module.exports = router;
