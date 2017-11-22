@@ -33,6 +33,14 @@ router.get("/registered", (req, res, next) => {
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const phoneNumber = req.body.phoneNumber;
+  const email = req.body.email;
+  const address = req.body.address;
+  const facebook = req.body.facebook;
+  const instagram = req.body.instagram;
+
   if (username === "" || password === "") {
     res.render("passport/signup.ejs", {
       message: "Indicate username and password"
@@ -54,7 +62,14 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      address,
+      facebook,
+      instagram
     });
 
     newUser.save((err) => {
@@ -85,41 +100,60 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-router.get("/edit-profile", (req, res, next) => {
+/// / ----- PROFILE AND EDIT PROFILE ROUTES ---/////
+
+router.get("/edit-profile/:userID", (req, res, next) => {
   res.render("passport/edit-profile");
 });
 
-router.post("/edit-profile", (req, res, next) => {
+router.get("/profile/:userID", (req, res, next) => {
+  res.render("passport/profile");
+});
+
+router.post("/edit-profile/:userID", (req, res, next) => {
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
   const phoneNumber = req.body.phoneNumber;
   const email = req.body.email;
   const address = req.body.address;
   const facebook = req.body.facebook;
   const instagram = req.body.instagram;
 
-  const updatedProfile = new User({
+  const updatedProfile = {
+    firstName: firstName,
+    lastName: lastName,
     phoneNumber: phoneNumber,
     email: email,
     address: address,
     facebook: facebook,
     instagram: instagram
-  });
+  };
 
-  //   User.updateOne({ username: req.body.username }, { $set: updatedProfile }); {
-  //     if (err) {
-  //       console.log("wtf");
-  //     } else {
-  //       res.redirect("/login");
-  //     }
-  //   }
-  // });
-
-  updateProfile.save(err => {
+  User.findOneAndUpdate({ _id: req.user._id }, updatedProfile, (err, res) => {
     if (err) {
-      console.log(err);
+      next(err);
     } else {
-      res.ridirect("/login");
+      res.redirect("/login");
     }
   });
 });
+
+//   User.updateOne({ username: req.body.username }, { $set: updatedProfile }); {
+//     if (err) {
+//       console.log("wtf");
+//     } else {
+//       res.redirect("/login");
+//     }
+//   }
+// });
+
+// updatedProfile.save(err => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     res.redirect("/login");
+//   }
+// });
+// });
 
 module.exports = router;

@@ -3,18 +3,59 @@
 <form action="/signup" method="POST" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
-  <br><br>
+  <br>
+  <br>
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <% if (typeof message !== "undefined") { %>
-    <div class="error-message">
-      <%= message %>
-    </div>
-    <% } %>
-      <br><br>
-      <button>Create account</button>
-      <p class="account-message">
-        Do you already have an account?
-        <a href="/login">Login</a>
-      </p>
+  <br>
+
+
+  <label for="first-name">First Name:</label>
+  <input id="first-name" type="text" name="first-name" placeholder="new first-name">
+  <br>
+
+  <br>
+  <label for="last-name">Last Name:</label>
+  <input id="last-name" type="text" name="last-name" placeholder="new last-name">
+  <br>
+
+
+  <label for="phone-number">Phone Number:</label>
+  <input id="phone-number" type="text" name="phone-number" placeholder="new phone number">
+  <br>
+
+  <br>
+  <label for="email">Email:</label>
+  <input id="email" type="text" name="email" placeholder="new email">
+  <br>
+
+  <br>
+  <label for="address">Address:</label>
+  <input id="address" type="text" name="address" placeholder="new address">
+  <br>
+
+  <h5>Social Media:</h2>
+    <br>
+    <label for="facebook">Facebook:</label>
+    <input id="facebook" type="text" name="facebook" placeholder="new facebook profile">
+    <br>
+
+    <br>
+    <label for="instagram">Instagram:</label>
+    <input id="instagram" type="text" name="instagram" placeholder="new instagram profile">
+    <br>
+
+
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message">
+        <%= message %>
+      </div>
+      <% } %>
+        <br>
+        <br>
+        <button>Create account</button>
+        <p class="account-message">
+          Do you already have an account?
+          <a href="/login">Login</a>
+        </p>
 </form>
