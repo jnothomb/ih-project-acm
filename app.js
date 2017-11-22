@@ -6,9 +6,6 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const app = express();
-const index = require("./routes/index");
-const users = require("./routes/users");
-const passportRouter = require("./routes/passportRouter");
 
 // mongoose configuration
 const mongoose = require("mongoose");
@@ -21,6 +18,17 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+
+// User available for all templates
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+// declaring routes
+const index = require("./routes/index");
+const users = require("./routes/users");
+const passportRouter = require("./routes/passportRouter");
 
 // enable sessions here
 app.use(flash());

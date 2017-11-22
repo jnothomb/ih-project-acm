@@ -113,8 +113,6 @@ router.get("/profile/:userID", (req, res, next) => {
 });
 
 router.post("/edit-profile/:userID", (req, res, next) => {
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
   const phoneNumber = req.body.phoneNumber;
   const email = req.body.email;
   const address = req.body.address;
@@ -122,8 +120,6 @@ router.post("/edit-profile/:userID", (req, res, next) => {
   const instagram = req.body.instagram;
 
   const updatedProfile = {
-    firstName: firstName,
-    lastName: lastName,
     phoneNumber: phoneNumber,
     email: email,
     address: address,
