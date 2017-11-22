@@ -42,7 +42,20 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.redirect("/welcome");
+      res.redirect("/profile/:userID");
+    }
+  });
+});
+
+router.get("/profile/:userID", (req, res, next) => {
+  User.findOne({ _id: req.user._id }, (err, result) => {
+    if (err) {
+      next(err);
+    } else {
+      const data = {
+        user: result
+      };
+      res.render("profile/profile", data);
     }
   });
 });
