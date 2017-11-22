@@ -18,15 +18,17 @@
         <h3>List</h3>
 
         <ul>
-            <% userContact.forEach(userContact => { %>
+            <% user.forEach(user => { %>
                 <li>
-                    <%= userContact.firstName %>
-                        <%= userContact.lastName %>
+                    <button type="button">
+                        <%= user.firstName %>
+                            <%= user.lastName %>
+                    </button>
                 </li>
                 <% }) %>
         </ul>
 
-        <a href="/edit-profile/<%= user.id %>">Edit profile...</a>
+        <a href="/profile/<%= user.id %>"> profile...</a>
         <br>
 
         <% } %>

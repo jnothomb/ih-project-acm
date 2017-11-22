@@ -10,12 +10,12 @@ const User = require("../models/user").User;
 
 //
 router.get("/contacts", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  User.findOne({ _id: req.user._id }, (err, result) => {
+  User.find({}, (err, result) => {
     if (err) {
       next(err);
     } else {
       const data = {
-        userContact: result
+        user: result
       };
       res.render("profile/contacts", data);
     }
