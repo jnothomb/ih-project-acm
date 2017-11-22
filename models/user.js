@@ -13,7 +13,7 @@ const userSchema = new Schema({
   address: String,
   socialMedia: {
     facebook: String,
-    Instagram: String
+    instagram: String
   },
   contacts: {
     user_id: Number
