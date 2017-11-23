@@ -13,7 +13,7 @@ const userSchema = new Schema({
   email: String,
   country: String,
   city: String,
-  cohortYear: Number,
+  cohortYear: String,
   cohortCity: String,
   socialMedia: {
     instagram: String,
