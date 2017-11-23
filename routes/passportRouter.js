@@ -38,7 +38,7 @@ router.post("/signup", (req, res, next) => {
   const country = req.body.country;
   const cohortYear = req.body.cohortYear;
   const cohortCity = req.body.cohortCity;
-  const facebook = req.body.facebook;
+  const instagram = req.body.instagram;
   const linkedin = req.body.linkedin;
   const pinterest = req.body.pinterest;
 
@@ -75,7 +75,7 @@ router.post("/signup", (req, res, next) => {
         country,
         cohortYear,
         cohortCity,
-        facebook,
+        instagram,
         linkedin,
         pinterest
 

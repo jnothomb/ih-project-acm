@@ -57,14 +57,14 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     cohortCity: req.body.cohortCity,
 
     socialMedia: {
-      facebook: req.body.facebook,
+      instagram: req.body.instagram,
       linkedin: req.body.linkedin,
       pinterest: req.body.pinterest
 
     }
   };
 
-  if (!req.user._id.equals(result._id)) {
+  if (!req.user._id.equals(res._id)) {
     res.redirect(`/profile/${userId}`);
   } else {
     User.findOneAndUpdate({ _id: userId }, updatedProfile, (err, profile) => {
