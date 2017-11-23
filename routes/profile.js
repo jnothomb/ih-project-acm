@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const ensureLogin = require("connect-ensure-login");
+
 // User model
 const User = require("../models/user").User;
 
@@ -32,10 +32,14 @@ router.get("/edit-profile/:userID", (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      const data = {
-        usr: result
-      };
-      res.render("profile/edit-profile", data);
+      if (!req.user._id.equals(result._id)) {
+        res.redirect(`/profile/${userId}`);
+      } else {
+        const data = {
+          usr: result
+        };
+        res.render("profile/edit-profile", data);
+      }
     }
   });
 });
@@ -45,6 +49,7 @@ router.post("/edit-profile/:userID", (req, res, next) => {
 
   const updatedProfile = {
     phoneNumber: req.body.phoneNumber,
+    profileImg: req.body.profileImg,
     email: req.body.email,
     address: req.body.address,
     socialMedia: {
@@ -53,13 +58,17 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     }
   };
 
-  User.findOneAndUpdate({ _id: userId }, updatedProfile, (err, profile) => {
-    if (err) {
-      next(err);
-    } else {
-      res.redirect(`/profile/${userId}`);
-    }
-  });
+  if (!req.user._id.equals(result._id)) {
+    res.redirect(`/profile/${userId}`);
+  } else {
+    User.findOneAndUpdate({ _id: userId }, updatedProfile, (err, profile) => {
+      if (err) {
+        next(err);
+      } else {
+        res.redirect(`/profile/${userId}`);
+      }
+    });
+  }
 });
 
 router.get("/profile/:userID", (req, res, next) => {

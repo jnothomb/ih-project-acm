@@ -1,5 +1,7 @@
 <h1> Profile Page </h1>
 
+<img src="<%= usr.profileImg %>" alt="Profile image">
+
 <h4>
     First Name:
     <%= usr.firstName %>
@@ -35,4 +37,6 @@
     <%= usr.socialMedia.instagram %>
 </h4>
 
-<a href="/edit-profile/<%= usr.id %>"> Edit profile...</a>
+<% if (user._id.equals(usr._id)) { %>
+    <a href="/edit-profile/<%= usr.id %>"> Edit profile...</a>
+    <% } %>

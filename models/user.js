@@ -2,25 +2,20 @@
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 
 const userSchema = new Schema({
+  profileImg: String,
   username: String,
   password: String,
   firstName: String,
   lastName: String,
-  phoneNumber: String, // STRING OR NUMBER???
+  phoneNumber: String,
   email: String,
   address: String,
   socialMedia: {
     facebook: String,
     instagram: String
   }
-  // ELIMINATING use of contacts array in model - not doing requests anymore
-  // contacts: [{
-  //   type: ObjectId,
-  //   ref: "User"
-  // }]
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
