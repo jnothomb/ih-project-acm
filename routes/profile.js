@@ -48,13 +48,19 @@ router.post("/edit-profile/:userID", (req, res, next) => {
   const userId = req.params.userID;
 
   const updatedProfile = {
-    phoneNumber: req.body.phoneNumber,
     profileImg: req.body.profileImg,
+    phoneNumber: req.body.phoneNumber,
     email: req.body.email,
-    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    cohortYear: req.body.cohortYear,
+    cohortCity: req.body.cohortCity,
+
     socialMedia: {
       facebook: req.body.facebook,
-      instagram: req.body.instagram
+      linkedin: req.body.linkedin,
+      pinterest: req.body.pinterest
+
     }
   };
 

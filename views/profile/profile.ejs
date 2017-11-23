@@ -23,8 +23,23 @@
 </h4>
 
 <h4>
-    Address:
-    <%= usr.address %>
+    Cohort City:
+    <%= usr.cohortCity %>
+</h4>
+
+<h4>
+    Cohort Year:
+    <%= usr.cohortYear %>
+</h4>
+
+<h4>
+    Current Country:
+    <%= usr.country %>
+</h4>
+
+<h4>
+    Current City:
+    <%= usr.city %>
 </h4>
 
 <h4>
@@ -33,9 +48,17 @@
 </h4>
 
 <h4>
-    Instagram:
-    <%= usr.socialMedia.instagram %>
+    Linkedin:
+    <%= usr.socialMedia.linkedin %>
 </h4>
+
+<h4>
+    Pinterest:
+    <%= usr.socialMedia.pinterest %>
+</h4>
+
+
+
 
 <% if (user._id.equals(usr._id)) { %>
     <a href="/edit-profile/<%= usr.id %>"> Edit profile...</a>
