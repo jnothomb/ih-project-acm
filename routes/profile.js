@@ -55,7 +55,6 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     country: req.body.country,
     cohortYear: req.body.cohortYear,
     cohortCity: req.body.cohortCity,
-
     socialMedia: {
       instagram: req.body.instagram,
       linkedin: req.body.linkedin,
@@ -64,7 +63,7 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     }
   };
 
-  if (!req.user._id.equals(res._id)) {
+  if (!req.user._id.equals(userId)) {
     res.redirect(`/profile/${userId}`);
   } else {
     User.findOneAndUpdate({ _id: userId }, updatedProfile, (err, profile) => {

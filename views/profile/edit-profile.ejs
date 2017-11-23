@@ -11,7 +11,7 @@
 
 
         <label for="phoneNumber">Phone Number:</label>
-        <input id="phoneNumber" type="text" name="phoneNumber" placeholder="your phone number">
+        <input id="phoneNumber" type="text" name="phoneNumber" value="<%= usr.phoneNumber %>" placeholder="your phone number">
         <br>
 
         <label for="cohortCity">Cohort City:</label>
@@ -54,8 +54,8 @@
 
             <br>
             <label for="Pineterest">Pinterest:</label>
-            <input id="Pinterest" type="text" name="Pinterest" placeholder="your Pinterest profile">
+            <input id="Pinterest" type="text" name="pinterest" value="<%= usr.socialMedia.pinterest%>" placeholder="your Pinterest profile">
             <br>
 
-            <button type="submit">Save</button>
+            <button type="submit">Update</button>
     </form>
