@@ -1,43 +1,39 @@
 <!-- views/auth/signup.ejs -->
-<h2>Edit Profile</h2>
-<form action="/edit-profile/<%= user.id %>" method="POST" id="form-container">
+<%= usr %>
+    <h2>Edit Profile</h2>
+    <form action="/edit-profile/<%= usr._id %>" method="POST" id="form-container">
 
 
-    <br>
-    <label for="picture"></label>
-    <input id="picture" type="file" name="picture" placeholder="">
-    <br>
+        <br>
+        <label for="picture"></label>
+        <input id="picture" type="file" name="picture" value="" placeholder="">
+        <br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" type="text" name="phoneNumber" value="<%= usr.phoneNumber %>" placeholder="new phone number">
+        <br>
+
+        <br>
+        <label for="email">Email:</label>
+        <input id="email" type="email" name="email" value="<%= usr.email %>" placeholder="new email">
+        <br>
+
+        <br>
+        <label for="address">Address:</label>
+        <input id="address" type="text" name="address" value="<%= usr.address %>" placeholder="new address">
+        <br>
 
 
+        <h5>Social Media:</h5>
 
-    <label for="phoneNumber">Phone Number:</label>
-    <input id="phoneNumber" type="text" name="phoneNumber" placeholder="new phone number">
-    <br>
+        <br>
+        <label for="facebook">Facebook:</label>
+        <input id="facebook" type="text" name="facebook" value="<%= usr.socialMedia.facebook %>" placeholder="new facebook profile">
+        <br>
 
-    <br>
-    <label for="email">Email:</label>
-    <input id="email" type="text" name="email" placeholder="new email">
-    <br>
-
-    <br>
-    <label for="address">Address:</label>
-    <input id="address" type="text" name="address" placeholder="new address">
-    <br>
-
-
-    <h5>Social Media:</h5>
-
-    <br>
-    <label for="facebook">Facebook:</label>
-    <input id="facebook" type="text" name="facebook" placeholder="new facebook profile">
-    <br>
-
-    <br>
-    <label for="instagram">Instagram:</label>
-    <input id="instagram" type="text" name="instagram" placeholder="new instagram profile">
-    <br>
-
-
-
-    <input type="submit">save</input>
-</form>
+        <br>
+        <label for="instagram">Instagram:</label>
+        <input id="instagram" type="text" name="instagram" value="<%= usr.socialMedia.instagram %>" placeholder="new instagram profile">
+        <br>
+        <button type="submit">Save</button>
+    </form>

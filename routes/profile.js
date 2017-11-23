@@ -13,15 +13,35 @@ router.get("/registered", (req, res, next) => {
 /// / ----- PROFILE AND EDIT PROFILE ROUTES ---/////
 
 router.get("/profile/:userID", (req, res, next) => {
-  res.render("profile/profile");
+  const userId = req.params.userID;
+  User.findOne({ _id: userId }, (err, result) => {
+    if (err) {
+      next(err);
+    } else {
+      const data = {
+        usr: result
+      };
+      res.render("profile/profile", data);
+    }
+  });
 });
 
 router.get("/edit-profile/:userID", (req, res, next) => {
-  res.render("profile/edit-profile");
+  const userId = req.params.userID;
+  User.findOne({ _id: userId }, (err, result) => {
+    if (err) {
+      next(err);
+    } else {
+      const data = {
+        usr: result
+      };
+      res.render("profile/edit-profile", data);
+    }
+  });
 });
 
 router.post("/edit-profile/:userID", (req, res, next) => {
-  console.log(req.user);
+  const userId = req.params.userID;
 
   const updatedProfile = {
     phoneNumber: req.body.phoneNumber,
@@ -33,11 +53,11 @@ router.post("/edit-profile/:userID", (req, res, next) => {
     }
   };
 
-  User.findOneAndUpdate({ _id: req.user._id }, updatedProfile, (err, profile) => {
+  User.findOneAndUpdate({ _id: userId }, updatedProfile, (err, profile) => {
     if (err) {
       next(err);
     } else {
-      res.redirect("/profile/:userID");
+      res.redirect(`/profile/${userId}`);
     }
   });
 });

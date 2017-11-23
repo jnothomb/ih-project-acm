@@ -19,7 +19,10 @@ router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("passport/signup.ejs");
+  const data = {
+    message: ""
+  };
+  res.render("passport/signup.ejs", data);
 });
 
 // SIGNUP ROUTE TO CREATE PROFILE
@@ -88,7 +91,10 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("passport/login");
+  const data = {
+    message: ""
+  };
+  res.render("passport/login", data);
 });
 
 router.post("/login", passport.authenticate("local", {

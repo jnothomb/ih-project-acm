@@ -13,22 +13,26 @@
     <h1>Contacts</h1>
     <br>
 
-    <% if(user) { %>
+    <% if(users) { %>
 
         <h3>List</h3>
 
         <ul>
-            <% user.forEach(user => { %>
-                <li>
-                    <button type="button">
-                        <%= user.firstName %>
-                            <%= user.lastName %>
-                    </button>
-                </li>
-                <% }) %>
+            <% users.forEach(el => { %>
+                <% if(user.username !== el.username) { %>
+                    <li>
+                        <a class="btn-user" href="/profile/<%= el.id %>">
+                            <%= el.firstName %>
+                                <%= el.lastName %>
+                        </a>
+                    </li>
+
+                    <% } %>
+                        <% }) %>
+
         </ul>
 
-        <a href="/profile/:<%= user.id %>"> profile...</a>
+        <a href="/profile/<%= user.id %>"> profile...</a>
         <br>
 
         <% } %>
