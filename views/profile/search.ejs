@@ -1,0 +1,56 @@
+<!-- THIS BELONGS TO CONTACTS.EJS and is TEMPORARILY PLACED HERE ... WORKING CODE -->
+
+
+
+<!-- MUST RENAME THIS PAGE IN ALL -->
+
+<!-- main.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contacts</title>
+</head>
+
+<body>
+
+    <h1>Contacts</h1>
+    <br>
+
+    <a href="/profile/<%= user.id %>">
+        <%= user.firstName + " " + user.firstName %>
+    </a>
+    <br>
+
+    <form action="/contacts/search" method="POST">
+        <input type="text" name="contactSearch">
+        <button type="submit">Search</button>
+    </form>
+    <% if(searchResult !== null) { %>
+        <pre><%= JSON.stringify(searchResult,null,2) %></pre>
+        <% } %>
+
+            <% if(users) { %>
+
+                <h3>List</h3>
+
+                <ul>
+                    <% users.forEach(el => { %>
+                        <% if(user.username !== el.username) { %>
+                            <li>
+                                <a class="btn-user" href="/profile/<%= el.id %>">
+                                    <%= el.firstName %>
+                                        <%= el.lastName %>
+                                </a>
+                            </li>
+
+                            <% } %>
+                                <% }) %>
+
+                </ul>
+
+                <% } %>
+
+</body>
+
+</html>

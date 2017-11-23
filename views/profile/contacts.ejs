@@ -13,9 +13,26 @@
     <h1>Contacts</h1>
     <br>
 
-    <% if(users) { %>
+    <!-- link to user profile -->
 
-        <h3>List</h3>
+    <a href="/profile/<%= user.id %>">
+        <%= user.firstName + " " + user.firstName %>
+    </a>
+    <br>
+
+    <!-- search function -->
+
+    <form action="/contacts/search" method="POST">
+        <input type="text" name="contactSearch">
+        <button type="submit">Search</button>
+    </form>
+
+    <% if(searchResult !== null) { %>
+        <pre><%= JSON.stringify(searchResult,null,2) %></pre>
+
+        <!-- SHOULD BE HERE ?????????-->
+
+        <h3>Search Result</h3>
 
         <ul>
             <% users.forEach(el => { %>
@@ -32,10 +49,28 @@
 
         </ul>
 
-        <a href="/profile/<%= user.id %>"> profile...</a>
-        <br>
+        <% } else { %>
 
-        <% } %>
+            <h3>List</h3>
+
+            <ul>
+                <% users.forEach(el => { %>
+                    <% if(user.username !== el.username) { %>
+                        <li>
+                            <a class="btn-user" href="/profile/<%= el.id %>">
+                                <%= el.firstName %>
+                                    <%= el.lastName %>
+                            </a>
+                        </li>
+
+                        <% } %>
+                            <% }) %>
+
+            </ul>
+
+            <% } %>
+
+
 
 </body>
 

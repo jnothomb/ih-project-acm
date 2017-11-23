@@ -34,9 +34,13 @@ router.post("/signup", (req, res, next) => {
   const lastName = req.body.lastName;
   const phoneNumber = req.body.phoneNumber;
   const email = req.body.email;
-  const address = req.body.address;
+  const city = req.body.city;
+  const country = req.body.country;
+  const cohortYear = req.body.cohortYear;
+  const cohortCity = req.body.cohortCity;
   const facebook = req.body.facebook;
-  const instagram = req.body.instagram;
+  const linkedin = req.body.linkedin;
+  const pinterest = req.body.pinterest;
 
   if (username === "" || password === "") {
     res.render("passport/signup.ejs", {
@@ -67,9 +71,14 @@ router.post("/signup", (req, res, next) => {
         lastName,
         phoneNumber,
         email,
-        address,
+        city,
+        country,
+        cohortYear,
+        cohortCity,
         facebook,
-        instagram
+        linkedin,
+        pinterest
+
       });
 
       newUser.save((err) => {

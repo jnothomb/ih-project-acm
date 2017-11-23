@@ -11,10 +11,14 @@ const userSchema = new Schema({
   lastName: String,
   phoneNumber: String,
   email: String,
-  address: String,
+  country: String,
+  city: String,
+  cohortYear: Number,
+  cohortCity: String,
   socialMedia: {
     facebook: String,
-    instagram: String
+    linkedin: String,
+    pinterest: String
   }
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
