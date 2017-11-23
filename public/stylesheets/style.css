@@ -1,8 +1,50 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* -- GLOBALS -- */
+
+html {
+  height: 100%;
 }
 
-a {
-  color: #00B7FF;
+
+/* --------- LANDING PAGE - index.ejs --------- */
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
+  text-align: center;
+  flex-wrap: nowrap;
 }
+
+
+/* Need to add logo  */
+
+#index-title {
+  font-size: 300%;
+  color: #FFFFFF;
+  letter-spacing: 2.1px;
+  line-height: 126px;
+}
+
+#index-welcome {
+  font-size: 170%;
+  color: white;
+  letter-spacing: 2.1px;
+  line-height: 126px;
+}
+
+#index-signin {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+}
+
+#index-newaccount {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+}
+
+
+/* --------- SIGN IN PAGE - login.ejs --------- */

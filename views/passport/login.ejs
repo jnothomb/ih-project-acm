@@ -1,13 +1,39 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <div class="login-container">
+
+    <!-- PLACE LOGO HERE -->
+
+    <h1 id="index-title">IRONPAGES</h1>
+
+    <form action="/login" method="POST">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username">
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+      </div>
+
+      <div>
+        <input type="submit" value="Sign In">
+      </div>
+    </form>
+
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-</form>
+
+</body>
+
+</html>
