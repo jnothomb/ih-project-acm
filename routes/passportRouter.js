@@ -75,9 +75,11 @@ router.post("/signup", (req, res, next) => {
         country,
         cohortYear,
         cohortCity,
-        instagram,
-        linkedin,
-        pinterest
+        socialMedia: {
+          instagram,
+          linkedin,
+          pinterest
+        }
 
       });
 
