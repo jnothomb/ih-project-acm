@@ -1,57 +1,46 @@
-<!-- MUST RENAME THIS PAGE IN ALL -->
-
-<!-- main.html -->
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Contacts</title>
+    <title>IRONPAGES</title>
+    <link rel='stylesheet' href='/stylesheets/contacts-style.css' />
 </head>
 
 <body>
 
-    <h1>Contacts</h1>
-    <br>
+    <div class="contacts-container">
 
-    <!-- link to user profile -->
+        <h1 id="contacts-title">IRONHACKERS</h1>
 
-    <a href="/profile/<%= user.id %>">
-        <%= user.firstName + " " + user.lastName %>
-    </a>
-    <br>
+        <!-- link to user profile -->
 
-    <!-- search function -->
+        <div class="contacts-user-profile">
 
-    <form action="/contacts/search" method="POST">
-        <input type="text" name="contactSearch">
-        <button type="submit">Search</button>
-    </form>
+            <!-- must add user photo here -->
 
-    <% if(searchResult !== null) { %>
+            <a href="/profile/<%= user.id %>">
+                <%= user.firstName + " " + user.lastName %>
+            </a>
+            <br>
 
-        <h3>Search Result</h3>
+        </div>
 
-        <ul>
-            <% searchResult.forEach(el => { %>
-                <% if(user.username !== el.username) { %>
-                    <li>
-                        <a class="btn-user" href="/profile/<%= el.id %>">
-                            <%= el.firstName %>
-                                <%= el.lastName %>
-                        </a>
-                    </li>
+        <!-- search function -->
 
-                    <% } %>
-                        <% }) %>
+        <form action="/contacts/search" method="POST">
 
-        </ul>
+            <input id="contacts-search-bar" type="text" name="contactSearch" placeholder="enter search item">
+            <br>
+            <button id="contacts-search-btn" type="submit">Search</button>
 
-        <% } else { %>
+        </form>
 
-            <h3>List</h3>
+        <% if(searchResult !== null) { %>
+
+            <h3>search result</h3>
 
             <ul>
-                <% users.forEach(el => { %>
+                <% searchResult.forEach(el => { %>
                     <% if(user.username !== el.username) { %>
                         <li>
                             <a class="btn-user" href="/profile/<%= el.id %>">
@@ -65,8 +54,29 @@
 
             </ul>
 
-            <% } %>
+            <% } else { %>
 
+                <h3>List</h3>
+
+                <ul>
+                    <% users.forEach(el => { %>
+                        <% if(user.username !== el.username) { %>
+                            <li>
+                                <a class="btn-user" href="/profile/<%= el.id %>">
+                                    <%= el.firstName %>
+                                        <%= el.lastName %>
+                                </a>
+                            </li>
+
+                            <% } %>
+                                <% }) %>
+
+                </ul>
+
+                <% } %>
+
+
+    </div>
 
 </body>
 
