@@ -16,7 +16,7 @@ const userSchema = new Schema({
   cohortYear: Number,
   cohortCity: String,
   socialMedia: {
-    facebook: String,
+    instagram: String,
     linkedin: String,
     pinterest: String
   }
