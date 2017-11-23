@@ -28,14 +28,11 @@
     </form>
 
     <% if(searchResult !== null) { %>
-        <pre><%= JSON.stringify(searchResult,null,2) %></pre>
-
-        <!-- SHOULD BE HERE ?????????-->
 
         <h3>Search Result</h3>
 
         <ul>
-            <% users.forEach(el => { %>
+            <% searchResult.forEach(el => { %>
                 <% if(user.username !== el.username) { %>
                     <li>
                         <a class="btn-user" href="/profile/<%= el.id %>">
@@ -69,7 +66,6 @@
             </ul>
 
             <% } %>
-
 
 
 </body>
