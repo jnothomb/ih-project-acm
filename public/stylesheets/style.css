@@ -5,6 +5,9 @@ html {
 }
 
 
+/*  */
+
+
 /* --------- LANDING PAGE - index.ejs --------- */
 
 .index-container {
@@ -47,4 +50,237 @@ html {
 }
 
 
+/*  */
+
+
 /* --------- SIGN IN PAGE - login.ejs --------- */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
+  text-align: center;
+  flex-wrap: nowrap;
+}
+
+
+/* Need to add logo  */
+
+#login-title {
+  font-size: 300%;
+  color: #FFFFFF;
+  letter-spacing: 2.1px;
+  line-height: 126px;
+}
+
+
+/* To Center the Placeholder */
+
+.login-container input[placeholder] {
+  font-weight: lighter;
+  text-align: center;
+  background: inherit;
+  border: 1px grey solid;
+  color: white;
+  /* font-weight: bold; */
+  align-items: stretch;
+}
+
+#login-username {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#login-password {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#login-btn-signin {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  padding: 10px;
+  width: 80%;
+  margin: 5%;
+  background: none;
+  border: 1px grey solid;
+}
+
+
+/*  */
+
+
+/* --------- SIGN UP PAGE - signup.ejs --------- */
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
+  text-align: center;
+  flex-wrap: nowrap
+}
+
+#signup-title {
+  font-size: 200%;
+  color: #FFFFFF;
+  letter-spacing: 2.1px;
+  line-height: 126px;
+}
+
+
+/* Need to add logo  */
+
+.signup-container input[placeholder] {
+  font-weight: lighter;
+  text-align: center;
+  background: inherit;
+  border: 1px grey solid;
+  color: white;
+  /* font-weight: bold; */
+  align-items: stretch;
+}
+
+#signup-username {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-password {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-first-name {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-last-name {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-phone-number {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-cohort-city {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-cohort-year {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-country {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-city {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-email {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-instagram {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-linkedin {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-pinterest {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-username {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  width: 80%;
+}
+
+#signup-btn-create-account {
+  font-size: 120%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  padding: 10px;
+  width: 80%;
+  margin: 5%;
+  background: none;
+  border: 1px grey solid;
+  font-weight: bold;
+}
+
+#signup-existing-account-message {
+  font-size: 100%;
+  color: white;
+  letter-spacing: 4.2px;
+  line-height: 46.2px;
+  padding: 10px;
+  width: 80%;
+  margin: 5%;
+  background: none;
+  font-weight: lighter;
+}

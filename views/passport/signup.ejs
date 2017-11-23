@@ -1,86 +1,103 @@
-<!-- views/auth/signup.ejs -->
-<!-- SIGNUP FORM -->
+<!DOCTYPE html>
+<html>
 
-<h2>Signup</h2>
-<form action="/signup" method="POST" id="form-container">
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-  <br>
+<body>
 
-  <br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+  <div class="signup-container">
 
+    <!-- PLACE LOGO HERE -->
 
-  <label for="firstName">First Name:</label>
-  <input id="firstName" type="text" name="firstName" placeholder="your first name">
-  <br>
+    <!-- SIGNUP FORM -->
 
-  <br>
-  <label for="lastName">Last Name:</label>
-  <input id="lastName" type="text" name="lastName" placeholder="your last name">
-  <br>
+    <h3 id="signup-title">Register for an Account</h3>
 
 
-  <label for="phoneNumber">Phone Number:</label>
-  <input id="phoneNumber" type="text" name="phoneNumber" placeholder="your phone number">
-  <br>
+    <form action="/signup" method="POST" id="signup-form-container">
 
-  <label for="cohortCity">Cohort City:</label>
-  <input id="cohortCity" type="text" name="cohortCity" placeholder="your cohort city">
-  <br>
+      <!-- <label for="username">Username</label> -->
+      <input id="signup-username" type="text" name="username" placeholder="New Username">
+      <br>
 
-  <label for="cohortYear">Cohort Year:</label>
-  <input id="cohortYear" type="text" name="cohortYear" placeholder="year of your cohort">
-  <br>
+      <br>
+      <!-- <label for="password">Password</label> -->
+      <input id="signup-password" type="password" name="password" placeholder="New Password">
+      <br>
+
+      <br>
+      <!-- <label for="firstName">First Name:</label> -->
+      <input id="signup-first-name" type="text" name="firstName" placeholder="First Name">
+      <br>
+
+      <br>
+      <!-- <label for="lastName">Last Name:</label> -->
+      <input id="signup-last-name" type="text" name="lastName" placeholder="Last Name">
+      <br>
+
+      <br>
+      <!-- <label for="phoneNumber">Phone Number:</label> -->
+      <input id="signup-phone-number" type="text" name="phoneNumber" placeholder="Full Phone Number">
+      <br>
+
+      <br>
+      <!-- <label for="cohortCity">Cohort City:</label> -->
+      <input id="signup-cohort-city" type="text" name="cohortCity" placeholder="Ironhack Cohort Campus">
+      <br>
+
+      <br>
+      <!-- <label for="cohortYear">Cohort Year:</label> -->
+      <input id="signup-cohort-year" type="text" name="cohortYear" placeholder="Ironhack Cohort Year">
+      <br>
+
+      <br>
+      <!-- <label for="country">Country you live in:</label> -->
+      <input id="signup-country" type="text" name="country" placeholder="Current Country">
+      <br>
+
+      <br>
+      <!-- <label for="city">current city:</label> -->
+      <input id="signup-city" type="text" name="city" placeholder="Current City">
+      <br>
+
+      <br>
+      <!-- <label for="email">Email:</label> -->
+      <input id="signup-email" type="text" name="email" placeholder="E-Mail">
+      <br>
+
+      <br>
+      <!-- <label for="instagram">Instagram:</label> -->
+      <input id="signup-instagram" type="text" name="instagram" placeholder="Instagram Username">
+      <br>
+
+      <br>
+      <!-- <label for="linkedin">Linkedin:</label> -->
+      <input id="signup-linkedin" type="text" name="linkedin" placeholder="Facebook Username">
+      <br>
+
+      <br>
+      <!-- <label for="Pineterest">Pinterest:</label> -->
+      <input id="signup-pinterest" type="text" name="Pinterest" placeholder="Pinterest Username">
+      <br>
+
+      <% if (typeof message !== "undefined") { %>
+        <div class="error-message">
+          <%= message %>
+        </div>
+        <% } %>
+
+          <button id="signup-btn-create-account" type="submit">Create account</button>
+          <p id="signup-existing-account-message">
+            DO YOU ALREADY HAVE AN ACCOUNT?
+            <a href="/login">LOGIN</a>
+          </p>
+    </form>
 
 
-  <br>
-  <label for="country">Country you live in:</label>
-  <input id="country" type="text" name="country" placeholder="your email">
-  <br>
+  </div>
 
-  <br>
-  <label for="city">current city:</label>
-  <input id="city" type="text" name="city" placeholder="city you live in now">
-  <br>
+</body>
 
-
-  <br>
-  <label for="email">Email:</label>
-  <input id="email" type="text" name="email" placeholder="your email">
-  <br>
-
-
-
-  <h5>Social Media:</h2>
-    <br>
-    <label for="instagram">Instagram:</label>
-    <input id="instagram" type="text" name="instagram" placeholder="your instagram profile">
-    <br>
-
-    <br>
-    <label for="linkedin">Linkedin:</label>
-    <input id="linkedin" type="text" name="linkedin" placeholder="your linkedin profile">
-    <br>
-
-    <br>
-    <label for="Pineterest">Pinterest:</label>
-    <input id="Pinterest" type="text" name="Pinterest" placeholder="your Pinterest profile">
-    <br>
-
-    <% if (typeof message !== "undefined") { %>
-      <div class="error-message">
-        <%= message %>
-      </div>
-      <% } %>
-        <br>
-        <br>
-        <button type="submit">Create account</button>
-        <p class="account-message">
-          Do you already have an account?
-          <a href="/login">Login</a>
-        </p>
-</form>
+</html>

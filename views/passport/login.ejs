@@ -2,9 +2,6 @@
 <html>
 
 <head>
-  <title>
-    <%= title %>
-  </title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
@@ -14,21 +11,28 @@
 
     <!-- PLACE LOGO HERE -->
 
-    <h1 id="index-title">IRONPAGES</h1>
+    <h1 id="login-title">IRONPAGES</h1>
+
+    <!-- LOGIN FORM -->
 
     <form action="/login" method="POST">
+
       <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username">
+        <!-- <label for="username">Username:</label> -->
+        <!-- Add User Icon -->
+        <input id="login-username" type="text" name="username" placeholder="Username">
+      </div>
+
+      <br>
+
+      <div>
+        <!-- <label for="password">Password:</label> -->
+        <!-- Add Password Icon -->
+        <input id="login-password" type="password" name="password" placeholder="Password">
       </div>
 
       <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password">
-      </div>
-
-      <div>
-        <input type="submit" value="Sign In">
+        <input id="login-btn-signin" type="submit" value="Sign In">
       </div>
     </form>
 
