@@ -14,30 +14,47 @@ html {
 .contacts-container {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
+    /* background-color: lightgrey; */
     text-align: center;
-    flex-wrap: nowrap;
-    min-height: 667px;
+    border: 1px solid grey;
+    height: 100vh;
+    font-size: 1.5em;
 }
 
 
 /* Need to add logo  */
 
 #contacts-title {
-    font-size: 120%;
+    background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
     color: #FFFFFF;
     letter-spacing: 2.1px;
-    line-height: 126px;
+    line-height: 6em;
+    border: 1px solid grey;
+    margin: 0px;
+}
+
+.contacts-mainuser-profile {
+    font-size: 100%;
+    color: white;
+    letter-spacing: 4.2px;
+    line-height: 3em;
+    border: 1px solid grey;
+    margin: 5px 0px;
+}
+
+
+/* NEED TO FIX THIS */
+
+#contacts-mainuser-photo {
+    position: 1;
+    max-height: 3em;
+    width: 10px;
     border: 1px solid grey;
 }
 
-.contacts-user-profile {
-    font-size: 120%;
-    color: white;
-    letter-spacing: 4.2px;
-    line-height: 46.2px;
+#contacts-mainuser-name {
+    position: 2;
     border: 1px solid grey;
-    margin: 5px 0px;
 }
 
 
@@ -61,8 +78,8 @@ html {
 }
 
 #contacts-search-bar {
-    font-size: 120%;
-    color: white;
+    font-size: 100%;
+    color: grey;
     letter-spacing: 4.2px;
     line-height: 46.2px;
     width: 80%;
@@ -70,16 +87,38 @@ html {
 }
 
 #contacts-search-btn {
-    font-size: 120%;
+    font-size: 100%;
     color: white;
     letter-spacing: 4.2px;
     line-height: 10.2px;
-    padding: 10px;
+    padding: 7px;
     width: 80%;
-    margin: 5px 0px;
-    background: none;
+    margin: 5px 0px 0px 0px;
+    background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
     border: 1px grey solid;
 }
 
 
-/* ALL CONTACTS LIST SECTION */
+/* ALL CONTACTS DISPLAY SECTION */
+
+.contacts-display-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px grey solid;
+}
+
+#contacts-list-title {
+    border-bottom: 1px lightgrey solid;
+    border-top: 1px lightgrey solid;
+    padding: 5px 0px;
+    position: 1;
+    margin: 15px 0px;
+}
+
+#contacts-list-table {
+    border: 1px grey solid;
+    position: 2;
+    margin: 15px 0px;
+    width: 80%;
+}

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -15,14 +16,12 @@
 
         <!-- link to user profile -->
 
-        <div class="contacts-user-profile">
+        <div class="contacts-mainuser-profile">
 
-            <!-- must add user photo here -->
-
-            <a href="/profile/<%= user.id %>">
+            <img id="contacts-mainuser-photo" src="<%= user.profileImg %>" alt="User Photo">
+            <a id="contacts-mainuser-name" href="/profile/<%= user.id %>">
                 <%= user.firstName + " " + user.lastName %>
             </a>
-            <br>
 
         </div>
 
@@ -38,31 +37,14 @@
             </form>
         </div>
 
-        <% if(searchResult !== null) { %>
+        <div class="contacts-display-div">
 
-            <h3>search result</h3>
+            <% if(searchResult !== null) { %>
 
-            <table>
-                <% searchResult.forEach(el => { %>
-                    <% if(user.username !== el.username) { %>
-                        <tr>
-                            <a class="btn-user" href="/profile/<%= el.id %>">
-                                <%= el.firstName %>
-                                    <%= el.lastName %>
-                            </a>
-                        </tr>
+                <h4 id="contacts-list-title"> search result </h4>
 
-                        <% } %>
-                            <% }) %>
-
-            </table>
-
-            <% } else { %>
-
-                <h3>List</h3>
-
-                <table>
-                    <% users.forEach(el => { %>
+                <table id="contacts-list-table">
+                    <% searchResult.forEach(el => { %>
                         <% if(user.username !== el.username) { %>
                             <tr>
                                 <a class="btn-user" href="/profile/<%= el.id %>">
@@ -76,8 +58,28 @@
 
                 </table>
 
-                <% } %>
+                <% } else { %>
 
+                    <h4 id="contacts-list-title"> all contacts </h4>
+
+                    <table id="contacts-list-table">
+                        <% users.forEach(el => { %>
+                            <% if(user.username !== el.username) { %>
+                                <tr>
+                                    <a class="btn-user" href="/profile/<%= el.id %>">
+                                        <%= el.firstName %>
+                                            <%= el.lastName %>
+                                    </a>
+                                </tr>
+
+                                <% } %>
+                                    <% }) %>
+
+                    </table>
+
+                    <% } %>
+
+        </div>
 
     </div>
 
