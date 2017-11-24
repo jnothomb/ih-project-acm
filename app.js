@@ -1,4 +1,5 @@
 "use strict";
+require("dotenv").config();
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
