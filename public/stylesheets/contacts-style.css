@@ -5,6 +5,11 @@ html {
     font-family: 'Montserrat', sans-serif;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 
 /*  */
 
@@ -16,7 +21,7 @@ html {
     flex-direction: column;
     /* background-color: lightgrey; */
     text-align: center;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     height: 100vh;
     font-size: 1.5em;
 }
@@ -29,7 +34,7 @@ html {
     color: #FFFFFF;
     letter-spacing: 2.1px;
     line-height: 6em;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     margin: 0px;
 }
 
@@ -38,8 +43,8 @@ html {
     color: white;
     letter-spacing: 4.2px;
     line-height: 2.8em;
-    border-bottom: 1px solid grey;
-    margin: 5px 0px;
+    /* border-bottom: 1px solid grey; */
+    margin: 20px 0px;
 }
 
 
@@ -51,14 +56,14 @@ html {
     border-radius: 50%;
     height: 5vh;
     width: 5vh;
-    margin-top: 0.2vh;
+    margin-top: 1.2vh;
     position: absolute;
     margin-left: -6vh;
 }
 
 #contacts-mainuser-name {
     position: 2;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     text-decoration: none;
 }
 
@@ -79,7 +84,7 @@ html {
 }
 
 .contacts-search-div {
-    border: 1px grey solid;
+    /* border: 1px grey solid; */
 }
 
 #contacts-search-bar {
@@ -95,12 +100,12 @@ html {
     font-size: 100%;
     color: white;
     letter-spacing: 4.2px;
-    line-height: 10.2px;
+    line-height: 27.2px;
     padding: 7px;
-    width: 80%;
-    margin: 5px 0px 0px 0px;
+    width: 21%;
+    margin: 10px 0px 0px 0px;
     background-image: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
-    border: 1px grey solid;
+    border: 0.5px grey solid;
 }
 
 
@@ -110,21 +115,43 @@ html {
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 1px grey solid;
+    /* border: 1px grey solid; */
 }
 
-#contacts-list-title {
+.contacts-list-title {
     border-bottom: 1px lightgrey solid;
     border-top: 1px lightgrey solid;
     padding: 5px 0px;
     position: 1;
     margin: 15px 0px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#contacts-list-table {
+.contacts-list-table {
+    border: none;
+    position: 2;
+    margin: 15px 0px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    text-align: left;
+}
+
+.contacts-users-table-row {
     border: 1px grey solid;
     position: 2;
     margin: 15px 0px;
     width: 80%;
-    text-decoration: none;
+}
+
+.contacts-users-table-row td {
+    padding: 10px 0;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.title-row {
+    font-weight: bold;
 }

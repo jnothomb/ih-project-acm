@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>IRONPAGES</title>
-    <link rel='stylesheet' href='/stylesheets/contacts-style.css' />
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/contacts-style.css' />
 </head>
 
 <body>
 
     <div class="contacts-container">
 
-        <h1 id="contacts-title">IRONHACKERS</h1>
+        <h1 id="contacts-title"> IRONHACKERS </h1>
 
         <!-- link to user profile -->
 
@@ -41,16 +42,48 @@
 
             <% if(searchResult !== null) { %>
 
-                <h4 id="contacts-list-title"> search result </h4>
+                <h4 class="contacts-list-title"> search result </h4>
 
-                <table id="contacts-list-table">
+                <table class="contacts-list-table">
+                    <tr class="contacts-users-table-row title-row">
+                        <td>
+                            Name
+                        </td>
+
+                        <td>
+                            Ironhack Campus
+                        </td>
+
+                        <td>
+                            Current City
+                        </td>
+                    </tr>
                     <% searchResult.forEach(el => { %>
                         <% if(user.username !== el.username) { %>
-                            <tr>
-                                <a class="btn-user" href="/profile/<%= el.id %>">
-                                    <%= el.firstName %>
-                                        <%= el.lastName %>
-                                </a>
+
+                            <tr class="contacts-users-table-row">
+
+                                <td>
+
+                                    <a href="/profile/<%= el.id %>">
+                                        <%= el.firstName %>
+                                            <%= el.lastName %>
+                                    </a>
+                                </td>
+
+                                <td>
+
+                                    <a href="/profile/<%= el.id %>">
+                                        <%= el.cohortCity %>
+                                    </a>
+                                </td>
+
+                                <td>
+
+                                    <a href="/profile/<%= el.id %>">
+                                        <%= el.country %>
+                                    </a>
+                                </td>
                             </tr>
 
                             <% } %>
@@ -60,16 +93,48 @@
 
                 <% } else { %>
 
-                    <h4 id="contacts-list-title"> all contacts </h4>
+                    <h4 class="contacts-list-title"> all contacts </h4>
 
-                    <table id="contacts-list-table">
+                    <table class="contacts-list-table">
+                        <tr class="contacts-users-table-row title-row">
+                            <td>
+                                Name
+                            </td>
+
+                            <td>
+                                Ironhack Campus
+                            </td>
+
+                            <td>
+                                Current City
+                            </td>
+                        </tr>
                         <% users.forEach(el => { %>
                             <% if(user.username !== el.username) { %>
-                                <tr>
-                                    <a class="btn-user" href="/profile/<%= el.id %>">
-                                        <%= el.firstName %>
-                                            <%= el.lastName %>
-                                    </a>
+
+                                <tr class="contacts-users-table-row">
+
+                                    <td>
+
+                                        <a href="/profile/<%= el.id %>">
+                                            <%= el.firstName %>
+                                                <%= el.lastName %>
+                                        </a>
+                                    </td>
+
+                                    <td>
+
+                                        <a href="/profile/<%= el.id %>">
+                                            <%= el.cohortCity %>
+                                        </a>
+                                    </td>
+
+                                    <td>
+
+                                        <a href="/profile/<%= el.id %>">
+                                            <%= el.country %>
+                                        </a>
+                                    </td>
                                 </tr>
 
                                 <% } %>

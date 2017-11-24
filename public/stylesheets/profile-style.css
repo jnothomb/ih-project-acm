@@ -49,15 +49,14 @@ body {
 }
 
 #edit-profile-btn {
-  /* border-radius: 50%; */
-  width: 15vh;
-  height: 5vh;
+  width: 17vh;
+  height: 6vh;
   font-size: 30px;
   color: white;
   letter-spacing: 1px;
   background-color: #1CB88D;
-  margin-top: 4vh;
-  margin-right: 2vh;
+  margin-top: 7vh;
+  margin-right: 4vh;
 }
 
 .profile-info {
@@ -67,10 +66,10 @@ body {
 
 .profile-info h4 {
   /* brandon@invisionapp.: */
-  font-size: 30px;
+  font-size: 22px;
   color: #1D1D26;
   letter-spacing: 1px;
-  line-height: 56px;
+  line-height: 38px;
   font-weight: 400;
 }
 
