@@ -1,19 +1,25 @@
-<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel='stylesheet' href='/stylesheets/profile-style.css' />
 
 
 <div class="profile-container">
 
-    <img id="background-user-image" src="<%= usr.profileImg %>" alt="Profile image">
+    <img id="background-user-image">
 
     <img id="icon-user-image" src="<%= usr.profileImg %>" alt="Profile image">
 
     <div class="profile-info">
+
         <div class="profile-name-and-btn">
+
             <h3 id="profile-name">
-                <%= user.firstName + " " + user.lastName %>
+                <%= usr.firstName + " " + usr.lastName %>
             </h3>
+
+
             <% if (user._id.equals(usr._id)) { %>
-                <button id="edit-profile-btn" type="button" href="/edit-profile/<%= usr.id %>">Edit Profile</button>
+                <form action="/edit-profile/<%= usr.id %>">
+                    <button id="edit-profile-btn" class="button">Edit Profile</button>
+                </form>
                 <% } %>
 
         </div>
