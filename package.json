@@ -2,6 +2,10 @@
   "name": "prm-project",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "8.9.0",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
@@ -14,6 +18,7 @@
     "connect-mongo": "^2.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "~4.15.5",
     "express-session": "^1.15.6",

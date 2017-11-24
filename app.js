@@ -1,4 +1,5 @@
 "use strict";
+require("dotenv").config();
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -12,7 +13,7 @@ const configurePassport = require("./helpers/passport");
 
 // mongoose configuration
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/automated-contact-manager", {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true

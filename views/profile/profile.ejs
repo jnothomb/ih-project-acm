@@ -1,65 +1,67 @@
-<h1> Profile Page </h1>
-
-<img src="<%= usr.profileImg %>" alt="Profile image">
-
-<h4>
-    First Name:
-    <%= usr.firstName %>
-</h4>
-
-<h4>
-    Last Name:
-    <%= usr.lastName %>
-</h4>
-
-<h4>
-    Phone Number:
-    <%= usr.phoneNumber %>
-</h4>
-
-<h4>
-    Email:
-    <%= usr.email %>
-</h4>
-
-<h4>
-    Cohort City:
-    <%= usr.cohortCity %>
-</h4>
-
-<h4>
-    Cohort Year:
-    <%= usr.cohortYear %>
-</h4>
-
-<h4>
-    Current Country:
-    <%= usr.country %>
-</h4>
-
-<h4>
-    Current City:
-    <%= usr.city %>
-</h4>
-
-<h4>
-    Instagram:
-    <%= usr.socialMedia.instagram %>
-</h4>
-
-<h4>
-    Linkedin:
-    <%= usr.socialMedia.linkedin %>
-</h4>
-
-<h4>
-    Pinterest:
-    <%= usr.socialMedia.pinterest %>
-</h4>
+<link rel='stylesheet' href='/stylesheets/style.css' />
 
 
+<div class="profile-container">
 
+    <img id="background-user-image" src="<%= usr.profileImg %>" alt="Profile image">
 
-<% if (user._id.equals(usr._id)) { %>
-    <a href="/edit-profile/<%= usr.id %>"> Edit profile...</a>
-    <% } %>
+    <img id="icon-user-image" src="<%= usr.profileImg %>" alt="Profile image">
+
+    <div class="profile-info">
+        <div class="profile-name-and-btn">
+            <h3 id="profile-name">
+                <%= user.firstName + " " + user.lastName %>
+            </h3>
+            <% if (user._id.equals(usr._id)) { %>
+                <button id="edit-profile-btn" type="button" href="/edit-profile/<%= usr.id %>">Edit Profile</button>
+                <% } %>
+
+        </div>
+
+        <h4>
+            Phone Number:
+            <%= usr.phoneNumber %>
+        </h4>
+
+        <h4>
+            Email:
+            <%= usr.email %>
+        </h4>
+
+        <h4>
+            Cohort City:
+            <%= usr.cohortCity %>
+        </h4>
+
+        <h4>
+            Cohort Year:
+            <%= usr.cohortYear %>
+        </h4>
+
+        <h4>
+            Current Country:
+            <%= usr.country %>
+        </h4>
+
+        <h4>
+            Current City:
+            <%= usr.city %>
+        </h4>
+
+        <h4>
+            Instagram:
+            <%= usr.socialMedia.instagram %>
+        </h4>
+
+        <h4>
+            Linkedin:
+            <%= usr.socialMedia.linkedin %>
+        </h4>
+
+        <h4>
+            Pinterest:
+            <%= usr.socialMedia.pinterest %>
+        </h4>
+    </div>
+
+</div>
