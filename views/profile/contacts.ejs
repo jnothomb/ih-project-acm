@@ -39,39 +39,39 @@
 
             <h3>search result</h3>
 
-            <ul>
+            <table>
                 <% searchResult.forEach(el => { %>
                     <% if(user.username !== el.username) { %>
-                        <li>
+                        <tr>
                             <a class="btn-user" href="/profile/<%= el.id %>">
                                 <%= el.firstName %>
                                     <%= el.lastName %>
                             </a>
-                        </li>
+                        </tr>
 
                         <% } %>
                             <% }) %>
 
-            </ul>
+            </table>
 
             <% } else { %>
 
                 <h3>List</h3>
 
-                <ul>
+                <table>
                     <% users.forEach(el => { %>
                         <% if(user.username !== el.username) { %>
-                            <li>
+                            <tr>
                                 <a class="btn-user" href="/profile/<%= el.id %>">
                                     <%= el.firstName %>
                                         <%= el.lastName %>
                                 </a>
-                            </li>
+                            </tr>
 
                             <% } %>
                                 <% }) %>
 
-                </ul>
+                </table>
 
                 <% } %>
 
