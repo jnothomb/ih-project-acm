@@ -1,61 +1,85 @@
 <!-- views/auth/signup.ejs -->
-<%= usr %>
-    <h2>Edit Profile</h2>
-    <form action="/edit-profile/<%= usr._id %>" method="POST" id="form-container">
 
+<!DOCTYPE html>
+<html lang="en">
 
-        <br>
-        <label for="picture">Image Link</label>
-        <input id="picture" type="text" name="profileImg" value="<%= usr.profileImg %>" placeholder="Profile url">
-        <br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/edit-profile-style.css' />
+</head>
 
-
-        <label for="phoneNumber">Phone Number:</label>
-        <input id="phoneNumber" type="text" name="phoneNumber" value="<%= usr.phoneNumber %>" placeholder="your phone number">
-        <br>
-
-        <label for="cohortCity">Cohort City:</label>
-        <input id="cohortCity" type="text" name="cohortCity" value="<%= usr.cohortCity %>" placeholder="your cohort city">
-        <br>
-
-        <label for="cohortYear">Cohort Year:</label>
-        <input id="cohortYear" type="text" name="cohortYear" value="<%= usr.cohortYear %>" placeholder="year of your cohort">
-        <br>
-
-
-        <br>
-        <label for="country">Country you live in:</label>
-        <input id="country" type="text" name="country" value="<%= usr.country %>" placeholder="your email">
-        <br>
-
-        <br>
-        <label for="city">current city:</label>
-        <input id="city" type="text" name="city" value="<%= usr.city %>" placeholder="city you live in now">
-        <br>
-
-
-        <br>
-        <label for="email">Email:</label>
-        <input id="email" type="text" name="email" value="<%= usr.email %>" placeholder="your email">
-        <br>
+<body>
+    <div class="profile-container">
 
 
 
-        <h5>Social Media:</h2>
-            <br>
-            <label for="instagram">Instagram:</label>
-            <input id="instagram" type="text" name="instagram" value="<%= usr.socialMedia.instagram%>" placeholder="your instagram profile">
-            <br>
+        <img id="background-user-image">
 
-            <br>
-            <label for="linkedin">Linkedin:</label>
-            <input id="linkedin" type="text" name="linkedin" value="<%= usr.socialMedia.linkedin%>" placeholder="your linkedin profile">
-            <br>
 
-            <br>
-            <label for="Pineterest">Pinterest:</label>
-            <input id="Pinterest" type="text" name="pinterest" value="<%= usr.socialMedia.pinterest%>" placeholder="your Pinterest profile">
-            <br>
 
-            <button type="submit">Update</button>
-    </form>
+        <img id="icon-user-image" src="<%= usr.profileImg %>" alt="Profile image">
+
+        <form action="/edit-profile/<%= usr._id %>" method="POST" id="form-container">
+
+            <div class="profile-info">
+
+                <br>
+                <label for="picture">Image Link:</label>
+                <input id="picture" type="text" name="profileImg" value="<%= usr.profileImg %>" placeholder="Profile url">
+                <br>
+
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input id="phoneNumber" type="text" name="phoneNumber" value="<%= usr.phoneNumber %>" placeholder="your phone number">
+                <br>
+
+                <label for="cohortCity">Cohort City:</label>
+                <input id="cohortCity" type="text" name="cohortCity" value="<%= usr.cohortCity %>" placeholder="your cohort city">
+                <br>
+
+                <label for="cohortYear">Cohort Year:</label>
+                <input id="cohortYear" type="text" name="cohortYear" value="<%= usr.cohortYear %>" placeholder="year of your cohort">
+                <br>
+
+
+
+                <label for="country">Country you live in:</label>
+                <input id="country" type="text" name="country" value="<%= usr.country %>" placeholder="your email">
+                <br>
+
+
+                <label for="city">current city:</label>
+                <input id="city" type="text" name="city" value="<%= usr.city %>" placeholder="city you live in now">
+                <br>
+
+
+
+                <label for="email">Email:</label>
+                <input id="email" type="text" name="email" value="<%= usr.email %>" placeholder="your email">
+                <br>
+
+
+
+                <label for="instagram">Instagram:</label>
+                <input id="instagram" type="text" name="instagram" value="<%= usr.socialMedia.instagram%>" placeholder="your instagram profile">
+                <br>
+
+
+                <label for="linkedin">Linkedin:</label>
+                <input id="linkedin" type="text" name="linkedin" value="<%= usr.socialMedia.linkedin%>" placeholder="your linkedin profile">
+                <br>
+
+
+                <label for="Pineterest">Pinterest:</label>
+                <input id="Pinterest" type="text" name="pinterest" value="<%= usr.socialMedia.pinterest%>" placeholder="your Pinterest profile">
+                <br>
+            </div>
+            <button id="save-btn" type="submit">Update</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

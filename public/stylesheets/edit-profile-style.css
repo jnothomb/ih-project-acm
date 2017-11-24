@@ -1,0 +1,75 @@
+html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#background-user-image {
+    width: 100%;
+    height: 25vh;
+    background: linear-gradient(-180deg, #14B88E 20%, #59BF8D 100%);
+}
+
+#icon-user-image {
+    /* Oval: */
+    background: linear-gradient(-180deg, #1BB98E 0%, #52BE8D 57%);
+    border: 1px solid rgba(20, 184, 142, 100);
+    box-shadow: 0 0 31px 6px rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    height: 13vh;
+    width: 13vh;
+    margin-top: 16vh;
+    position: absolute;
+    margin-left: 4vh;
+    /* mask: */
+    /* img: */
+}
+
+.profile-info {
+    background-color: white;
+    padding-left: 5vh;
+    margin-top: 4vh;
+    color: #1CB88D;
+    width: 44vh;
+}
+
+.profile-info label {
+    /* brandon@invisionapp.: */
+    font-size: 16px;
+    color: #1CB88D;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.profile-info input {
+    /* brandon@invisionapp.: */
+    font-size: 12px;
+    color: #1D1D26;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-weight: 400;
+    border: 1px rgba(1, 3, 5, 0.1) solid;
+    margin-bottom: 3vh;
+    width: 65vh;
+}
+
+#save-btn {
+    width: 15vh;
+    height: 5vh;
+    margin-left: 5vh;
+    font-size: 30px;
+    color: white;
+    letter-spacing: 1px;
+    background-color: #1CB88D;
+    margin-right: 2vh;
+    width: 65vh;
+}
