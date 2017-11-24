@@ -34,11 +34,11 @@ html {
 }
 
 .contacts-mainuser-profile {
-    font-size: 100%;
+    font-size: 110%;
     color: white;
     letter-spacing: 4.2px;
-    line-height: 3em;
-    border: 1px solid grey;
+    line-height: 2.8em;
+    border-bottom: 1px solid grey;
     margin: 5px 0px;
 }
 
@@ -46,15 +46,20 @@ html {
 /* NEED TO FIX THIS */
 
 #contacts-mainuser-photo {
-    position: 1;
-    max-height: 3em;
-    width: 10px;
-    border: 1px solid grey;
+    border: 1px solid rgba(20, 184, 142, 100);
+    box-shadow: 0 0 31px 6px rgba(255, 255, 255, 0.50);
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+    margin-top: 0.2vh;
+    position: absolute;
+    margin-left: -6vh;
 }
 
 #contacts-mainuser-name {
     position: 2;
     border: 1px solid grey;
+    text-decoration: none;
 }
 
 
@@ -121,4 +126,5 @@ html {
     position: 2;
     margin: 15px 0px;
     width: 80%;
+    text-decoration: none;
 }
