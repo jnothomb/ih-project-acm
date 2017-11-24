@@ -2,13 +2,14 @@
 
 html {
     height: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 /*  */
 
 
-/* --------- LANDING PAGE - index.ejs --------- */
+/* --------- CONTACTS PAGE - contacts.ejs --------- */
 
 .contacts-container {
     display: flex;
@@ -23,10 +24,11 @@ html {
 /* Need to add logo  */
 
 #contacts-title {
-    font-size: 150%;
+    font-size: 120%;
     color: #FFFFFF;
     letter-spacing: 2.1px;
     line-height: 126px;
+    border: 1px solid grey;
 }
 
 .contacts-user-profile {
@@ -35,7 +37,11 @@ html {
     letter-spacing: 4.2px;
     line-height: 46.2px;
     border: 1px solid grey;
+    margin: 5px 0px;
 }
+
+
+/* SEARCH SECTION */
 
 
 /* To Center the Placeholder */
@@ -50,12 +56,17 @@ html {
     align-items: stretch;
 }
 
+.contacts-search-div {
+    border: 1px grey solid;
+}
+
 #contacts-search-bar {
     font-size: 120%;
     color: white;
     letter-spacing: 4.2px;
     line-height: 46.2px;
     width: 80%;
+    border: 1px solid grey;
 }
 
 #contacts-search-btn {
@@ -65,7 +76,10 @@ html {
     line-height: 10.2px;
     padding: 10px;
     width: 80%;
-    margin: 5px;
+    margin: 5px 0px;
     background: none;
     border: 1px grey solid;
 }
+
+
+/* ALL CONTACTS LIST SECTION */

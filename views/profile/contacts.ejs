@@ -4,6 +4,7 @@
 <head>
     <title>IRONPAGES</title>
     <link rel='stylesheet' href='/stylesheets/contacts-style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
 </head>
 
 <body>
@@ -27,13 +28,15 @@
 
         <!-- search function -->
 
-        <form action="/contacts/search" method="POST">
+        <div class="contacts-search-div">
+            <form action="/contacts/search" method="POST">
 
-            <input id="contacts-search-bar" type="text" name="contactSearch" placeholder="enter search item">
-            <br>
-            <button id="contacts-search-btn" type="submit">Search</button>
+                <input id="contacts-search-bar" type="text" name="contactSearch" placeholder="enter search item">
+                <br>
+                <button id="contacts-search-btn" type="submit">Search</button>
 
-        </form>
+            </form>
+        </div>
 
         <% if(searchResult !== null) { %>
 
