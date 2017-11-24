@@ -12,7 +12,7 @@ const configurePassport = require("./helpers/passport");
 
 // mongoose configuration
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/automated-contact-manager", {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE,
   useMongoClient: true
