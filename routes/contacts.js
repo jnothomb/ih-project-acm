@@ -25,7 +25,7 @@ router.get("/contacts", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 router.post("/contacts/search", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const search = req.body.contactSearch;
-  const query = { $or: [{ firstName: { $regex: search, $options: "i" } }, { lastName: { $regex: search, $options: "i" } }, { email: { $regex: search, $options: "i" } }, { city: { $regex: search, $options: "i" } }] };
+  const query = { $or: [{ firstName: { $regex: search, $options: "i" } }, { lastName: { $regex: search, $options: "i" } }, { email: { $regex: search, $options: "i" } }, { city: { $regex: search, $options: "i" } }, { cohortCity: { $regex: search, $options: "i" } }, { cohortYear: { $regex: search, $options: "i" } }] };
   User.find(query, (err, searchResult) => {
     if (err) {
       next(err);
