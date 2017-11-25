@@ -10,6 +10,11 @@ router.get("/registered", (req, res, next) => {
   res.render("passport/registered.ejs");
 });
 
+router.get("/profile/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
+
 /// / ----- PROFILE AND EDIT PROFILE ROUTES ---/////
 
 router.get("/profile/:userID", (req, res, next) => {
